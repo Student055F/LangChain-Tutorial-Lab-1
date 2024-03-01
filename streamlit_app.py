@@ -1,15 +1,9 @@
 import streamlit as st
-import sys  # Add this import for accessing sys module
-
-from langchain_openai import OpenAI  # Update import statement
+from langchain.llms import OpenAI
 
 st.title('🦜🔗 Quickstart App')
 
 openai_api_key = st.sidebar.text_input('OpenAI API Key')
-
-# Print Python path
-print("Python Path:")
-print(sys.path)
 
 def generate_response(input_text):
     llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
@@ -22,3 +16,4 @@ with st.form('my_form'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
     if submitted and openai_api_key.startswith('sk-'):
         generate_response(text)
+
