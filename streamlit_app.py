@@ -1,5 +1,9 @@
 import streamlit as st
+import sys
 from langchain_openai import OpenAI
+
+# Print out the Python path
+st.write("Python Path:", sys.path)
 
 st.title('🦜🔗 Quickstart App')
 
